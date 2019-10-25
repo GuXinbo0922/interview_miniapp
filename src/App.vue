@@ -9,7 +9,11 @@
             wx.login({
                 complete:res=>{
                     console.log('res...',res);
-                    if(res.code){//解密工具
+                    /**
+                     * 通过code获取openid  
+                     * 将请求到的openid通过请求头携带上（相当于token），做后续的项目操作
+                     * */
+                    if(res.code){
                         this.login({code:res.code})
                     }else{
                         wx.showToast({

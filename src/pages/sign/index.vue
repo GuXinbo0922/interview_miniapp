@@ -21,7 +21,8 @@ export default {
         }
     },
     async created(){
-        //判断是否需要指纹解锁 从本地存储中获取
+        //判断是否需要指纹解锁 从本地存储中获取 
+        /**若还没进行指纹解锁验证 则跳转到指纹解锁页面 */
         let fingerInfo = wx.getStorageSync('finger')
         if(!fingerInfo || !fingerInfo.finger || +new Date()- fingerInfo.timestamp> 24*60*60*1000){
             wx.navigateTo({url:'/pages/finger/index'});
